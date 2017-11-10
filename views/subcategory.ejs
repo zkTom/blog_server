@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加分类</title>
+    <style type="text/css">
+    	#box{
+    		width: 500px;
+    		height: 500px;
+    		margin: 50px auto;
+    		border: 1px solid blue;
+    		border-radius: 5px;
+    	}
+    </style>
+</head>
+<body>
+<section id="box">
+    <%- locals.category_list %>
+	<form action="/category/addSubCategory" method="post" >
+        <select name="category" value="" >    
+              <% locals.category_list.forEach(function(item){ %>
+                <option value ="<%- item.id %>"><%- item.title   %></option>
+              <% }); %>
+        </select>
+        <input type="hidden" name="category_id" value="">
+		<input type="text" name="title" value="" />
+		<input type="text" name="desc" value="" />
+		<input type="submit" value="确定" />
+	</form>
+</section>
+<script type="text/javascript">
+    var form=document.forms[0];
+    var menu = form.category;
+    menu.onchange=function(){    
+        var index=this.selectedIndex;
+        form.category_id.value=this.options[index].value;
+    }
+</script>
+</body>
+</html>

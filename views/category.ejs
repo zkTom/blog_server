@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加分类</title>
+    <style type="text/css">
+    	#box{
+    		width: 500px;
+    		height: 500px;
+    		margin: 50px auto;
+    		border: 1px solid blue;
+    		border-radius: 5px;
+    	}
+    </style>
+</head>
+<body>
+<section id="box">
+	<form action="/category/addCategory" method="post" >
+		<input type="text" name="title" value="" />
+		<input type="text" name="desc" value="" />
+		<input type="submit" value="确定" />
+	</form>
+</section>
+</body>
+</html>
